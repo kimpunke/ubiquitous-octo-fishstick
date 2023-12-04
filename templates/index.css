@@ -73,6 +73,19 @@ tr{
 	border-radius: 10px;
 }
 
+.table_in_D {
+	margin:10px;
+	display: inline-block;
+	vertical-align: middle; 
+}
+td{
+	vertical-align: middle; 
+}
+.table_in_D img{
+	width: 30px;
+	height: 30px;
+}
+
 .score_board1, .play_board, .score_board2 {
     margin: 0 10px 0 10px;
 }
