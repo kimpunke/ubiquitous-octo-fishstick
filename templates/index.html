@@ -212,30 +212,21 @@
         </div> 
 
         <div id="dice" class="dice">
-            <div class="dice1" id="dice_a"><img src="img/dice1.png"></div>
+            <div class="dice1" onclick="keep(this, 200,200)" ><img id="dice_a" src="img/dice1.png"></div>
 
-            <div class="dice2" id="dice_b"><img src="img/dice1.png"></div>
+            <div class="dice2"><img  id="dice_b" src="img/dice1.png"></div>
 
-            <div class="dice3" id="dice_c"><img src="img/dice1.png"></div>
+            <div class="dice3" ><img id="dice_c" src="img/dice1.png"></div>
             
-            <div class="dice4" id="dice_a"><img src="img/dice1.png"></div>
+            <div class="dice4"><img  id="dice_d" src="img/dice1.png"></div>
             
-            <div class="dice5" id="dice_a"><img src="img/dice1.png"></div>
+            <div class="dice5" ><img id="dice_e" src="img/dice1.png"></div>
         </div>
       
     </div>
 
     <script>
-        const imagePaths = [
-    'img/dice1.png',
-    'img/dice2.png',
-    'img/dice3.png',
-    'img/dice4.png',
-    'img/dice5.png',
-    'img/dice6.png'
-    // 추가 이미지 경로들...
-    ];
-
+       
         // 테이블 변경 함수
      function changeTable_1() {
             document.querySelector('.score_board1').style.display = 'none';
@@ -256,49 +247,59 @@
             document.querySelector('.score_board2').style.display = 'block';
             document.querySelector('.score_board2_1').style.display = 'none';
         }
+
+        const imagePaths = [
+    'img/dice1.png',
+    'img/dice2.png',
+    'img/dice3.png',
+    'img/dice4.png',
+    'img/dice5.png',
+    'img/dice6.png'
+    ];
+
 //난수생성
     function getRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
 //랜덤 이미지
-    function setRandomImage() {
-    // 이미지 요소 선택
-    const imageElement = document.getElementById('dice_a');
-
-    // 난수 생성
+    function setRandomImage(diceId) {
+        console.log("setRandom함수실행 diceId :값 ", diceId);
+    const imageElement = document.getElementById(diceId);
+        console.log(" ")
     const randomIndex = getRandomNumber(0, imagePaths.length - 1);
 
-    // 랜덤 이미지 경로 설정
     const randomImagePath = imagePaths[randomIndex];
     imageElement.src = randomImagePath;
-  }
+    console.log("값:", imageElement.src);
+}
 
    function rollDice() {
     // 주사위 1 애니메이션
-    
     dice_r('dice_a');
-
+    
     // 주사위 2 애니메이션 (애니메이션이 끝난 후 실행)
     setTimeout(() => {
         dice_r('dice_b');
-    }, 400); // 애니메이션 재생 시간 (4초로 가정)
+    }, 350); // 애니메이션 재생 시간 (4초로 가정)
 
     setTimeout(() => {
         dice_r('dice_c');
-    }, 800); // 애니메이션 재생 시간 (4초로 가정)
-
-    setTimeout(() => {
-        dice_r('dice_b');
-    }, 800); // 애니메이션 재생 시간 (4초로 가정)
+    }, 700); // 애니메이션 재생 시간 (4초로 가정)
 
     setTimeout(() => {
         dice_r('dice_d');
-    }, 800); // 애니메이션 재생 시간 (4초로 가정)
+    }, 1050); // 애니메이션 재생 시간 (4초로 가정)
+
+    setTimeout(() => {
+        dice_r('dice_e');
+    }, 1400); // 애니메이션 재생 시간 (4초로 가정)
 }
 
     //다이스 롤 함수
     function dice_r(diceId) {
+        console.log("dice_r함수실행");
+        
     document.querySelector('.dice').style.display = 'block';
 
     var dice = document.getElementById(diceId);
@@ -310,9 +311,25 @@
         // 3초 시간 지연
         setTimeout(function() {
             document.querySelector('.dice').style.display = 'none';
-        }, 3000);
+        }, 5000);
     });
+    setRandomImage(diceId);
 }
+
+
+    function keep(element, x, y) {
+            // 특정 x, y 좌표로 이동
+            document.querySelector('.dice').style.display = 'block';
+            
+            element.style.width = '100px'; // 원하는 너비
+             element.style.height = '100px';
+            element.style.top = y + 'px';
+            element.style.left = x + 'px';
+            element.style.zIndex = 1; // 다른 요소 위로 이동
+
+            // 클릭된 요소 비활성화
+            element.onclick = null;
+        }
 
 
 function choice1() {

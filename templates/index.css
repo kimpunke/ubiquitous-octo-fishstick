@@ -156,6 +156,7 @@ td{
 	  -webkit-filter: blur(50px);
 	  filter: blur(50px);
 	  opacity: 0;
+	  visibility: hidden;
 	}
 	50% {
 	  -webkit-transform: translateX(0) rotate(0deg) scale(0.5);
@@ -175,18 +176,21 @@ td{
   
   @keyframes roll-in-blurred-left {
 	0% {
+		
 	  -webkit-transform: translateX(-1000px) rotate(-720deg) scale(1);
+	
 	  transform: translateX(-1000px) rotate(-720deg) scale(1);
 	  -webkit-filter: blur(50px);
 	  filter: blur(50px);
 	  opacity: 0;
+	  visibility: hidden;
 	}
 	50% {
 	  -webkit-transform: translateX(0) rotate(0deg) scale(0.5);
 	  transform: translateX(0) rotate(0deg) scale(0.5);
 	  -webkit-filter: blur(0);
 	  filter: blur(0);
-	  opacity: 1;
+	  opacity: 0.5;
 	}
 	100% {
 	  -webkit-transform: translateX(0) rotate(0deg) scale(1);
@@ -200,6 +204,6 @@ td{
   
 
   .roll-animation {
-	-webkit-animation: roll-in-blurred-left 1s ease-in-out;
-    animation: roll-in-blurred-left 1s ease-in-out;
+	-webkit-animation: roll-in-blurred-left 1.5s ease-in-out;
+    animation: roll-in-blurred-left 1.5s ease-in-out;
   }
