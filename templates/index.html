@@ -308,10 +308,7 @@
     dice.addEventListener('animationend', function() {
         dice.classList.remove('roll-animation');
 
-        // 3초 시간 지연
-        setTimeout(function() {
-            document.querySelector('.dice').style.display = 'none';
-        }, 5000);
+        
     });
     setRandomImage(diceId);
 }

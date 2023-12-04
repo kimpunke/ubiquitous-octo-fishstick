@@ -18,6 +18,7 @@
 	padding:6px 17px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #528ecc;
+	
 }
 .blueButton:hover {
 	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
@@ -109,7 +110,7 @@ td{
 .dice{
 	width: 55px;
 	height: 55px; 
-	display: none;
+	
 	
 }
 
