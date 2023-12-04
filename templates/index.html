@@ -214,9 +214,9 @@
         <div id="dice" class="dice">
             <div class="dice1" id="dice_a"><img src="img/dice1.png"></div>
 
-            <div class="dice2" id="dice_a"><img src="img/dice1.png"></div>
+            <div class="dice2" id="dice_b"><img src="img/dice1.png"></div>
 
-            <div class="dice3" id="dice_a"><img src="img/dice1.png"></div>
+            <div class="dice3" id="dice_c"><img src="img/dice1.png"></div>
             
             <div class="dice4" id="dice_a"><img src="img/dice1.png"></div>
             
@@ -226,6 +226,16 @@
     </div>
 
     <script>
+        const imagePaths = [
+    'img/dice1.png',
+    'img/dice2.png',
+    'img/dice3.png',
+    'img/dice4.png',
+    'img/dice5.png',
+    'img/dice6.png'
+    // 추가 이미지 경로들...
+    ];
+
         // 테이블 변경 함수
      function changeTable_1() {
             document.querySelector('.score_board1').style.display = 'none';
@@ -246,22 +256,39 @@
             document.querySelector('.score_board2').style.display = 'block';
             document.querySelector('.score_board2_1').style.display = 'none';
         }
-        
+//난수생성
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
    function rollDice() {
     // 주사위 1 애니메이션
+    
     dice_r('dice_a');
 
     // 주사위 2 애니메이션 (애니메이션이 끝난 후 실행)
     setTimeout(() => {
         dice_r('dice_b');
-    }, 4000); // 애니메이션 재생 시간 (4초로 가정)
+    }, 400); // 애니메이션 재생 시간 (4초로 가정)
+
+    setTimeout(() => {
+        dice_r('dice_c');
+    }, 800); // 애니메이션 재생 시간 (4초로 가정)
+
+    setTimeout(() => {
+        dice_r('dice_b');
+    }, 800); // 애니메이션 재생 시간 (4초로 가정)
+
+    setTimeout(() => {
+        dice_r('dice_d');
+    }, 800); // 애니메이션 재생 시간 (4초로 가정)
 }
 
     //다이스 롤 함수
-    function dice_r() {
+    function dice_r(diceId) {
     document.querySelector('.dice').style.display = 'block';
 
-    var dice = document.getElementById('dice_a');
+    var dice = document.getElementById(diceId);
     dice.classList.add('roll-animation');
 
     dice.addEventListener('animationend', function() {
@@ -279,7 +306,6 @@ function choice1() {
     var userInput = prompt("초이스 값을 입력하세요:");
 
     if (userInput !== null && userInput !== "") {
-        console.log("입력받은 값:", userInput);
         var formattedValue = "choice : " + userInput;
         var targetCell = document.querySelector('.score_board1_1 table tbody tr:nth-child(1) td:nth-child(1)');
         targetCell.innerText = formattedValue;
@@ -290,7 +316,6 @@ function choice2() {
     var userInput = prompt("초이스 값을 입력하세요:");
 
     if (userInput !== null && userInput !== "") {
-        console.log("입력받은 값:", userInput);
         var formattedValue = "choice : " + userInput;
         var targetCell = document.querySelector('.score_board2_1 table tbody tr:nth-child(1) td:nth-child(1)');
         targetCell.innerText = formattedValue;
@@ -302,7 +327,7 @@ function choice2() {
 
 
     <div>
-    <input type="button" class="blueButton" value="다이스 롤" onclick="dice_r()">
+    <input type="button" class="blueButton" value="다이스 롤" onclick="rollDice()">
     <input type="button" value="결과 제출">
     </div>
 </body>
