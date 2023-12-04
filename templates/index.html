@@ -12,8 +12,260 @@
         <div class="title"><h1>BSM Yacht</h1></div>
         <div class="turn"><h3 style="text-align: right;">turn 1/12</h3></div>
     </div>
+
+
+    <div class="body">
+        <div class="score_board1">
+            <div class="player_1">P1 : 이름 </div>
+            <table border="1" class="table">
+                <tbody>
+                    <tr>
+                        <td>에이스</td>
+                        <td>data</td>
+                    </tr>
+                
+                    <tr>
+                        <td>듀얼</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>트리플</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>쿼드</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>펜타</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>헥사</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">total : </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button  onclick="changeTable_1()">다른 버튼</button></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            </div>
+            
+            <div class="score_board1_1">
+                <div class="player_1">P1_1 : 이름 </div>
+                <table border="1" class="table">
+                    <tbody>
+                        <tr>
+                            <td colspan="2">choice : </td>
+                        </tr>
+                        <tr>
+                            <td>포커</td>
+                            <td>data</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>풀하우스</td>
+                            <td>data</td>
+                        </tr>
+                        <tr>
+                            <td>스몰 스트레이트</td>
+                            <td>data</td>
+                        </tr>
+                        <tr>
+                            <td> 라지 스트레이트 </td>
+                            <td>data</td>
+                        </tr>
+                        <tr>
+                            <td> 풀 하우스 </td>
+                            <td>data</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2"><button  onclick="choice1()">choice</button><button  onclick="revertTable_1()">다른 버튼</button></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+
+        <div class="play_board">
+            <img src="play_board.png" alt="게임판" >
+        </div>
+
+
+        <div class="score_board2">
+            <div class="player_2">P2 : 이름 </div>
+            <table border="1" class="table">
+                <tbody>
+                    <tr>
+                        <td>에이스</td>
+                        <td>data</td>
+                    </tr>
+                
+                    <tr>
+                        <td>듀얼</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>트리플</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>쿼드</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>펜타</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>헥사</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">total : </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button onclick="changeTable_2()">다른 버튼</button></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div> 
+
+        <div class="score_board2_1">
+            <div class="player_2">P2_1 : 이름 </div>
+            <table border="1" class="table">
+                <tbody>
+                    <tr>
+                        <td colspan="2">choice : </td>
+                    </tr>
+                    <tr>
+                        <td>포커</td>
+                        <td>data</td>
+                    </tr>
+                
+                    <tr>
+                        <td>풀하우스</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>스몰 스트레이트</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td> 라지 스트레이트 </td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td> 풀 하우스 </td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button  onclick="choice2()">choice</button><button  onclick="revertTable_2()">다른 버튼</button></td>
+                
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div> 
+
+        <div id="dice" class="dice">
+            <div class="dice1" id="dice_a"><img src="dice1.png"></div>
+
+            <div class="dice2" id="dice_a"><img src="dice1.png"></div>
+        </div>
+      
+    </div>
+
+    <script>
+        // 테이블 변경 함수
+     function changeTable_1() {
+            document.querySelector('.score_board1').style.display = 'none';
+            document.querySelector('.score_board1_1').style.display ='block' ;
+        }
+
+    function revertTable_1() {
+            document.querySelector('.score_board1').style.display = 'block';
+            document.querySelector('.score_board1_1').style.display = 'none';
+        }
+
+    function changeTable_2() {
+            document.querySelector('.score_board2').style.display = 'none';
+            document.querySelector('.score_board2_1').style.display ='block' ;
+        }
+
+    function revertTable_2() {
+            document.querySelector('.score_board2').style.display = 'block';
+            document.querySelector('.score_board2_1').style.display = 'none';
+        }
+        
+   function rollDice() {
+    // 주사위 1 애니메이션
+    dice_r('dice_a');
+
+    // 주사위 2 애니메이션 (애니메이션이 끝난 후 실행)
+    setTimeout(() => {
+        dice_r('dice_b');
+    }, 4000); // 애니메이션 재생 시간 (4초로 가정)
+}
+
+    //다이스 롤 함수
+    function dice_r() {
+    document.querySelector('.dice').style.display = 'block';
+
+    var dice = document.getElementById('dice_a');
+    dice.classList.add('roll-animation');
+
+    dice.addEventListener('animationend', function() {
+        dice.classList.remove('roll-animation');
+
+        // 3초 시간 지연
+        setTimeout(function() {
+            document.querySelector('.dice').style.display = 'none';
+        }, 3000);
+    });
+}
+
+
+function choice1() {
+    var userInput = prompt("초이스 값을 입력하세요:");
+
+    if (userInput !== null && userInput !== "") {
+        console.log("입력받은 값:", userInput);
+        var formattedValue = "choice : " + userInput;
+        var targetCell = document.querySelector('.score_board1_1 table tbody tr:nth-child(1) td:nth-child(1)');
+        targetCell.innerText = formattedValue;
+    }
+}
+
+function choice2() {
+    var userInput = prompt("초이스 값을 입력하세요:");
+
+    if (userInput !== null && userInput !== "") {
+        console.log("입력받은 값:", userInput);
+        var formattedValue = "choice : " + userInput;
+        var targetCell = document.querySelector('.score_board2_1 table tbody tr:nth-child(1) td:nth-child(1)');
+        targetCell.innerText = formattedValue;
+    }
+}
+
+
+
+    
+
+
+
+    </script>
+
+
     <div>
-    <input type="button" class="blueButton" value="다이스 롤">
+    <input type="button" class="blueButton" value="다이스 롤" onclick="dice_r()">
     <input type="button" value="결과 제출">
     </div>
 </body>
