@@ -260,7 +260,20 @@
     function getRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    
+
+//랜덤 이미지
+    function setRandomImage() {
+    // 이미지 요소 선택
+    const imageElement = document.getElementById('dice_a');
+
+    // 난수 생성
+    const randomIndex = getRandomNumber(0, imagePaths.length - 1);
+
+    // 랜덤 이미지 경로 설정
+    const randomImagePath = imagePaths[randomIndex];
+    imageElement.src = randomImagePath;
+  }
+
    function rollDice() {
     // 주사위 1 애니메이션
     
